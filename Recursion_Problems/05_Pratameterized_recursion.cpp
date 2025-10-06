@@ -1,3 +1,4 @@
+// Sum of first N numbers (Parameterised)
 #include <iostream>
 using namespace std;
 
