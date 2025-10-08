@@ -2,11 +2,15 @@ class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
         int n = nums.size();
-        k = k % n;  // handle large k values
-        vector<int> temp(n);
-        for (int i = 0; i < n; i++) {
-            temp[(i + k) % n] = nums[i];
-        }
-        nums = temp; // copy rotated array back
+        k = k % n; // handle cases when k > n
+
+        // Step 1: reverse whole array
+        reverse(nums.begin(), nums.end());
+
+        // Step 2: reverse first k elements
+        reverse(nums.begin(), nums.begin() + k);
+
+        // Step 3: reverse remaining n-k elements
+        reverse(nums.begin() + k, nums.end());
     }
 };
